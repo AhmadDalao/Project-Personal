@@ -1,7 +1,7 @@
 
 
 let mega_menu_trigger = document.querySelector("#mega_menu_trigger");
-let mega_menu = document.querySelector(".mega-menu");
+let mega_menu = document.querySelector(".mega-menu-wrapper");
 
 mega_menu_trigger.addEventListener("click", triggerMegaMenu);
 

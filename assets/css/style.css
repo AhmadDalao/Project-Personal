@@ -324,42 +324,51 @@ ul {
 */
 
 .mega-menu {
-    position: absolute;
-    top: 150px;
-    opacity: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    background-color: var(--color-white);
-    border: 1px solid antiquewhite;
-    border-bottom: 4px solid var(--main-color);
-    flex-wrap: wrap;
+    min-height: 0;
+    display: flex;
     flex-direction: column;
-    transition: all 0.3s linear var(--custom-transition);
-    display: none;
-    z-index: 999;
 }
 
-.mega-menu.show-menu {
+.mega-menu-wrapper {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border: 1px solid antiquewhite;
+    transition: all 0.3s linear var(--custom-transition);
+    display: grid;
+    z-index: 999;
+    grid-template-rows: 0;
+    overflow: hidden;
+
+}
+
+.mega-menu-wrapper.show-menu {
     top: 90px;
-    opacity: 1;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 30px;
+    border-bottom: 4px solid var(--main-color);
+
 }
 
 @media (min-width: 768px) {
-    .mega-menu {
+    .mega-menu-wrapper {
         gap: 40px;
-        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        flex-direction: row;
-        display: none;
+        grid-template-rows: 0fr;
     }
 
-    .mega-menu.show-menu {
+    .mega-menu-wrapper.show-menu {
         top: 72px;
-        opacity: 1;
-        display: flex;
+        display: grid;
+
+    }
+
+    .mega-menu {
+        flex-direction: row;
     }
 }
 
